@@ -1,14 +1,17 @@
-INC_PATH=-I/. -I/./cppunit_install/include/
-LIB_PATH=-L/./cppunit_install/lib
+INC_PATH=-I. -I./cppunit_install/include/
+LIB_PATH=-L./cppunit_install/lib
 STATIC_PATH=./cppunit_install/lib
 LIBS=libcppunit.a
 
 
 check : addertests
-	./addtests
+	./addertests
 
 addertests : adder_test.o
-	g++ $(LIB_PATH) -o addtests adder_test.o $(STATIC_PATH)/$(LIBS)
+	g++ $(INC_PATH) -o addertests adder_test.o $(STATIC_PATH)/$(LIBS)
+
+adder_test.o : adder_test.cpp
+	g++ $(INC_PATH) -c adder_test.cpp
 
 clean :
-	rm -rf *.o funtools addertests sort addtests bst string sorttests sortstests median *.dSYM a.out
+	rm -rf *.o addertests

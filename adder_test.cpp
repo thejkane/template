@@ -7,7 +7,12 @@
 #include <cppunit/TestSuite.h>
 #include <cppunit/ui/text/TestRunner.h>
 
-#include "adder.hpp"
+class Adder{
+public:
+  int add(int x, int y) {
+    return (x+y);
+  }
+};
 
 class AdderTest : public CppUnit::TestFixture {
 
